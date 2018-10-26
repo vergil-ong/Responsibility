@@ -1,6 +1,7 @@
 package com.github.ong.responsibility.controller;
 
 import com.github.ong.responsibility.chain.support.Chain;
+import com.github.ong.responsibility.user.chain.UserChain;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,9 @@ public class TestController {
     @Autowired
     Chain chain;
 
+    @Autowired
+    UserChain userChain;
+
     @RequestMapping("/ping")
     public String ping(){
         logger.info("this is ping");
@@ -35,5 +39,11 @@ public class TestController {
     public String test1(){
         chain.process(new HashMap<>());
         return "test1";
+    }
+
+    @RequestMapping("/test2")
+    public String test2(){
+        userChain.process(new HashMap<>());
+        return "test2";
     }
 }
