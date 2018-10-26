@@ -1,0 +1,39 @@
+server:
+  port: 8652
+  servlet:
+    session:
+      timeout: 30m
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/responsibility?useUnicode=true&characterEncoding=utf8&useSSL=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    initialSize: 1
+    maxActive: 20
+    minIdle: 1
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 'x'
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: true
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall
+
+
+logging:
+  level:
+    root: INFO
+  file: log/responsibility.log
+
+
+
+
